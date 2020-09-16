@@ -1,0 +1,66 @@
+<img
+  src="../../assets/images/loginbg.jpg"
+  class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+  alt=""
+/>'
+<section id="login" class="loginForm" #test>
+  <div
+    class="card container text-dark border-info bg-light"
+    style="width: 30rem;"
+  >
+    <h1 class="card-header text-center ">Login</h1>
+    <form>
+      <div class="card-body">
+        <div class="form-group text-center">
+          <label for="">Email ID</label>
+          <input
+            placeholder="eg: abc@yz.com"
+            id="inputemail"
+            type="email"
+            #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched"
+            [(ngModel)]="loginUserData.email"
+            name="email"
+            class="form-control"
+            required
+            email
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="email.valid || email.untouched"
+            >Invalid Email</small
+          >
+        </div>
+
+        <div class="form-group text-center">
+          <label for="">Password</label>
+          <input
+            placeholder="Password"
+            type="password"
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched"
+            [(ngModel)]="loginUserData.password"
+            name="password"
+            class="form-control"
+            required
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="password.valid || password.untouched"
+            >Invalid Password</small
+          >
+        </div>
+        <footer id="btncontainer">
+          <button (click)="loginUser()" class="btn float-left btn-success">
+            Login
+          </button>
+          <a role="button" class="btn " routerLink="/home" r>Home</a>
+        </footer>
+        <p>
+          Want to become member?
+          <button routerLink="/register" class="btn-link">Register Here</button>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>

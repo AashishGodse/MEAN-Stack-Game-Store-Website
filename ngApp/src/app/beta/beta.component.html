@@ -1,0 +1,37 @@
+<div class="card-columns">
+  <div *ngFor="let test of games">
+    <div class="card w-75 ml-5" *ngIf="test.Beta === true">
+      <img
+        class="card-img-top"
+        src="{{ test.ThumbnilLink }}"
+        alt="Card image cap"
+        width="400px"
+      />
+      <div class="card-body container">
+        <h5 class="card-title">{{ test.GameTitle }}</h5>
+        <p class="card-text">
+          {{ test.GameDescription }}
+        </p>
+      </div>
+      <div class="row mx-2 my-3">
+        <div class="col-5 m-auto">
+          <a href="{{ test.DriveLink }}" class="btn btn-success cbtn" download
+            >Test</a
+          >
+        </div>
+        <div class="col-6">
+          <a
+            href="mailto:{{ test.Email }}?Subject=Bug%20Report%20For%20{{
+              test.GameTitle
+            }}"
+            class="btn btn-outline-danger cbtn"
+            >Report</a
+          >
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ test.GamePlatform }}</small>
+      </div>
+    </div>
+  </div>
+</div>

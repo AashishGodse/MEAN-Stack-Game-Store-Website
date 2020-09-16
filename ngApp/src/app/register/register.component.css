@@ -1,0 +1,38 @@
+label{
+    
+    color: rgb(20, 31, 4);
+    font-size:x-large;
+}
+h1{
+    
+    color: rgb(5, 1, 1);
+}
+#register{
+    padding-top: 10%;
+}
+
+#btncontainer{
+    text-align:right;
+}
+
+.btn{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 7px;
+    background-color: black;
+    color:greenyellow;
+}
+.btn:hover{
+    background-color: greenyellow;
+    color:#01050e;
+
+}
+
+.card
+{
+    position: relative;
+    top: -60px;
+}

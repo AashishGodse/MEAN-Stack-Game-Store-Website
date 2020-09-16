@@ -1,0 +1,15 @@
+.nav-btn {
+  position: relative;
+  top: 20px;
+}
+
+.game-panal {
+  position: relative;
+  top: 20px;
+}
+.games-container {
+  border: white solid 2px;
+}
+.container .game-panal {
+  display: inline;
+}

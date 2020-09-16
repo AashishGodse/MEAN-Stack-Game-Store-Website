@@ -1,0 +1,33 @@
+<div style="margin-top: 200px; margin-left: 500px;" *ngIf="games.length === 0">
+  <h1 style="color:greenyellow; opacity: 0.5;">No Uploads</h1>
+</div>
+
+<div class="card-columns">
+  <div *ngFor="let test of games">
+    <div class="card w-75 ml-5" *ngIf="test.Email === user_email">
+      <img
+        class="card-img-top"
+        src="{{ test.ThumbnilLink }}"
+        alt="Card image cap"
+        width="400px"
+      />
+      <div class="card-body container">
+        <h5 class="card-title">{{ test.GameTitle }}</h5>
+        <p class="card-text">
+          {{ test.GameDescription }}
+        </p>
+      </div>
+      <div class="row mx-2 my-3">
+        <div class="col-5 m-auto"></div>
+        <div class="col-6">
+          <a class="btn btn-outline-danger cbtn" (click)="delete(test)"
+            >Remove</a
+          >
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{ test.GamePlatform }}</small>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+label {
+  color: rgb(20, 31, 4);
+  font-size: x-large;
+}
+h1 {
+  color: rgb(5, 1, 1);
+}
+#btncontainer {
+  text-align: right;
+}
+.bgi {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMgaUmoAGr1UqVzAjQ5DQ3OgpFJkham36gEjIyn9opvr7w9xdd");
+}
+.btn {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 7px;
+  background-color: #01050e;
+  color: greenyellow;
+}
+.btn:hover {
+  background-color: greenyellow;
+  color: #01050e;
+}
+#login {
+  padding-top: 10%;
+}
+
+img {
+  position: relative;
+  top: -200px;
+  background-image: url(../../assets/images/loginbg.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+}
+.loginForm {
+  position: relative;
+  top: -750px;
+}

@@ -1,0 +1,12 @@
+.heading {
+  color: rgb(50, 228, 50);
+}
+.coll {
+  color: chartreuse;
+}
+.btn {
+  background-color: rgb(108, 241, 46);
+  border: solid 1px rgb(108, 241, 46);
+  color: black;
+  font-weight: 700;
+}

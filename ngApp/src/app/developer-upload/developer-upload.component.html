@@ -1,0 +1,226 @@
+<form #UploadForm="ngForm" (ngSubmit)="OnUpload()" novalidate>
+  <div class="card container text-dark border-info bg-light upload-panal">
+    <h1 class="text-center">Upload Here</h1>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        required
+        readonly
+        value="{{ email }}"
+      />
+    </div>
+    <div class="form-group">
+      <label>Game Title</label>
+      <input
+        type="text"
+        required
+        #GameTitle1="ngModel"
+        [class.is-invalid]="GameTitle1.invalid && GameTitle1.touched"
+        class="form-control"
+        name="GameTitle"
+        placeholder="PUBG"
+        [(ngModel)]="UploadData.GameTitle"
+      />
+      <small
+        class="text-danger"
+        [class.d-none]="GameTitle1.valid || GameTitle1.untouched"
+        >*Title is required</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Decription</label>
+      <input
+        type=""
+        class="form-control"
+        required
+        placeholder="Stratergy Game"
+        #GameDescription="ngModel"
+        [class.is-invalid]="GameDescription.invalid && GameDescription.touched"
+        name="GameDescrption"
+        [(ngModel)]="UploadData.GameDescription"
+      />
+
+      <small
+        class="text-danger"
+        [class.d-none]="GameDescription.valid || GameDescription.untouched"
+        >*Description is Required
+      </small>
+    </div>
+
+    <div class="form-row align-items-center form-group">
+      <div class="col-auto my-1">
+        <label class="mr-sm-2" for="inlineFormCustomSelect">Platform</label>
+        <select
+          class="custom-select mr-sm-2"
+          #GamePlatform="ngModel"
+          (blur)="ValidatePlatform(GamePlatform.value)"
+          (change)="ValidatePlatform(GamePlatform.value)"
+          [class.is-invalid]="platHasError && GamePlatform.touched"
+          name="GamePlatform"
+          [(ngModel)]="UploadData.GamePlatform"
+        >
+          <option selected value="">Choose...</option>
+          <option value="Android">Android</option>
+          <option value="PC">PC</option>
+          <option value="Xbox">Xbox</option>
+        </select>
+        <small
+          class="text-danger"
+          [class.d-none]="!platHasError || GamePlatform.untouched"
+          >Choose Valid Platform</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Drive Link</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        placeholder="https://drive.google.com/open?id=19h4p7MgfZNBZGixs7lcXViHoluCvzVYX"
+        #DriveLink="ngModel"
+        [class.is-invalid]="DriveLink.invalid && DriveLink.touched"
+        name="DriveLink"
+        [(ngModel)]="UploadData.DriveLink"
+      />
+
+      <small
+        class="text-danger"
+        [class.d-none]="DriveLink.valid || DriveLink.untouched"
+        >*Link is Required
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Thumbnil Link</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        placeholder="https://drive.google.com/open?id=19h4p7MgfZNBZGixs7lcXViHoluCvzVYX"
+        #ThumbnilLink="ngModel"
+        [class.is-invalid]="ThumbnilLink.invalid && ThumbnilLink.touched"
+        name="ThumbnilLink"
+        [(ngModel)]="UploadData.ThumbnilLink"
+      />
+
+      <small
+        class="text-danger"
+        [class.d-none]="ThumbnilLink.valid || ThumbnilLink.untouched"
+        >*Link is Required
+      </small>
+    </div>
+
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        #Beta="ngModel"
+        [(ngModel)]="UploadData.Beta"
+        name="Beta"
+      />
+      <label class="form-check-label">Enable Beta Testing</label>
+    </div>
+
+    <div class="">
+      <button
+        type="submit"
+        [disabled]="UploadForm.form.invalid || platHasError"
+        class="btn btn-primary"
+      >
+        Upload
+      </button>
+    </div>
+  </div>
+</form>
+<div *ngIf="Submitted">
+  <H4 class="text-success text-center">Successfully Uploaded</H4>
+</div>
+<!-- <div class="container-fluid">
+  <div class="row header-section">
+    <span>Angular 4/5 Nodejs File Upload Download Sample</span>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row card">
+        <div class="col-sm-12">
+          <h4>Upload Section</h4>
+          <div id="fileSelector">
+            <input
+              type="file"
+              name="fileUplaod"
+              id="fileUpload"
+              multiple
+              ng2FileSelect
+              [uploader]="uploader"
+            />
+          </div>
+          <div>
+            <div class="row uploadList" *ngFor="let item of uploader.queue">
+              <div class="col-sm-4">{{ item.file.name }}</div>
+              <div class="col-sm-4">
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-success"
+                    [ngStyle]="{ width: item.progress + '%' }"
+                  ></div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <button
+                  type="button"
+                  class="btn btn-dark"
+                  (click)="item.upload()"
+                >
+                  Upload
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="item.remove()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="uploader?.queue?.length > 0">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="uploader.uploadAll()"
+            >
+              Upload All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row card">
+        <h4>Download Section</h4>
+
+        <div
+          class="row"
+          *ngFor="let item of attachmentList"
+          style="margin:10px;padding:5px;background-color:rgb(231, 229, 229); border-radius:5px; line-height:40px;"
+        >
+          <div class="col-sm-7">{{ item.originalname }}</div>
+          <div class="col-sm-5" style="text-align:center;">
+            <button type="button" class="btn btn-primary" (click)="download(i)">
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div> -->

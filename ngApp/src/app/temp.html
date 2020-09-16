@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-danger bg-transparent ">
+    <a class="navbar-brand title" routerLink="/home" routerLinkActive="active">
+      <img src="./assets/images/GD.png" alt="GD Logo" class="logo">GD<span>Squads</span>
+    </a> 
+    <button class= "navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupprotedContent" aria-control="navbarSupprotedContent" aria aria-expanded="false" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="NavbarSupportedContent">
+    <ul class="navbar nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link navh" routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link navh" routerLink="/games" routerLinkActive="active">Games</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link navh" routerLink="/beta" routerLinkActive="active">Beta</a>
+      </li>
+    </ul>
+
+    <ul class="navbar nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link navh" *ngIf="!_authService.loggedin()" routerLink="/login"
+          routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link navh" *ngIf="!_authService.loggedin()" routerLink="/register"
+          routerLinkActive="active">Register</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedin()"
+          (click)="_authService.logoutUser()">Logout</a>
+      </li>
+
+    </ul>
+  </div>
+  </nav>

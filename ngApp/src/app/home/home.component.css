@@ -1,0 +1,85 @@
+.card1 {
+  position: relative;
+  top: -300px;
+}
+/* .bgvideo {
+  position: relative;
+  top: -75px;
+  width: 100%;
+  opacity: 0.5;
+  z-index: -1;
+} */
+
+.carousel {
+  position: relative;
+
+  top: -75px;
+}
+
+.opacityctrl {
+  opacity: 0.5;
+}
+
+.about {
+  margin-top: 100px;
+}
+
+.about p {
+  padding: 10px;
+  color: whitesmoke;
+}
+
+.abotu-img {
+  padding: 40px 20px;
+  height: 50%;
+}
+
+.about-text {
+  padding: 40px 30px;
+}
+.about-btn {
+  padding: 5px 40px;
+  border: 2px solid #f5f5f5;
+  position: relative;
+  background-color: #fff;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.about-btn:hover::before {
+  color: #fff;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: #f5f5f5;
+}
+
+.abt-h1 {
+  color: #f5e610;
+}
+.sec-img {
+  width: 400px;
+  height: 400px;
+}
+
+.about-btn::before {
+  content: "";
+  left: 0;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #ec6ead;
+  z-index: -1;
+  transition: 0.8s;
+  color: #fff;
+}
+
+p {
+  color: whitesmoke;
+}
+
+footer {
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px;
+}

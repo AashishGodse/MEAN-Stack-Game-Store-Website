@@ -1,0 +1,46 @@
+<div class="container text-center nav-btn">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="OnAndroid()" >Android</button>
+        <button type="button" class="btn btn-secondary" (click)="OnPc()">PC</button>
+        <button type="button" class="btn btn-secondary" (click)="OnXbox()">XBox</button>
+      </div>
+      
+</div>
+<div class="container game-panal games-container" [ngSwitch]="view">
+    <div *ngSwitchCase=1>
+        <app-android-games ></app-android-games>
+    </div >
+    <div *ngSwitchCase=2>
+        <app-pc-games ></app-pc-games>
+    </div >
+    <div *ngSwitchCase=3>
+        <app-xbox-games ></app-xbox-games>
+    </div >
+    <div *ngSwitchDefault>
+        <app-android-games ></app-android-games>
+    </div >
+</div>
+
+
+  
+<!-- <div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let game of games">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{game.name}}</h5>
+                <p class="card-text">{{game.description}}</p>
+                <a href="#" class="btn btn-primary">Buy Game</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{game.price}}
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <br>
+<br>
+<div style="background-color: black;">
+    <input [(ngModel)]="name" type="text">
+    <h1 style="color:white;">{{name}}</h1>
+</div> -->
